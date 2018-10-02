@@ -40,9 +40,10 @@ public class VoxelRuntimeEditor : MonoBehaviour
             //  Spawn an object at this location
             Vector3 spawnPos = hit.point;
 
-            spawnPos.x = Mathf.Floor(spawnPos.x);
-            spawnPos.y = Mathf.Floor(spawnPos.y);
-            spawnPos.z = Mathf.Floor(spawnPos.z);
+
+            spawnPos.x = ( spawnPos.x <= 0.5f ? Mathf.Floor(spawnPos.x) : Mathf.Round(spawnPos.x) );
+            spawnPos.y = (spawnPos.y <= 0.5f ? Mathf.Floor(spawnPos.y) : Mathf.Round(spawnPos.y));
+            spawnPos.z = (spawnPos.z <= 0.5f ? Mathf.Floor(spawnPos.z) : Mathf.Round(spawnPos.z));
 
             Instantiate(VoxelPallete[SelectedPaintVoxel], spawnPos, Quaternion.identity);
 

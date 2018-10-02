@@ -47,4 +47,22 @@ public class VoxelExporter : MonoBehaviour
         s.Close();
                    
     }
+
+    /// <summary>
+    /// Import objects from the scene file
+    /// </summary>
+    public void ImportObjects()
+    {
+        using (StreamReader sr = new StreamReader(OutputFileName))
+        {
+            string line;
+            // Read and display lines from the file until the end of 
+            // the file is reached.
+            while ((line = sr.ReadLine()) != null)
+            {
+                Debug.Log(line);
+
+            }
+        }
+    }
 }
